@@ -1,0 +1,22 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @restaurant %>
+
+<div>
+  <%= link_to "Back to restaurants", restaurants_path %>
+  <br><br>
+  <%= link_to 'Leave a review', restaurant_reviews_path(@restaurant), class: "btn btn-primary" %>
+</div>
+
+<div class="container mt-5">
+  <p><strong>Reviews</strong></p>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item">
+      <%= review.content %>
+      <%= review.rating %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+</div>
